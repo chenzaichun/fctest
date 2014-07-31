@@ -24,6 +24,17 @@
   </head>
   <body style="padding:0; margin: 0; background: #000;">
     <canvas id="gameCanvas" width="800" height="450">
+      <div id="googldAd" >
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- fctest_mob -->
+    <ins class="adsbygoogle"
+	 style="display:inline-block;width:320px;height:50px"
+	 data-ad-client="ca-pub-9788859026282302"
+	 data-ad-slot="4573556849"></ins>
+    <script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+      </div>
     </canvas>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- fctest_mob -->
@@ -34,62 +45,61 @@
     <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
-    </script>
 
-      
-      <script src="game.min.js"></script>
-      <script src="WeixinApi.js"></script>
+    
+    <script src="game.min.js"></script>
+    <script src="WeixinApi.js"></script>
 
 
-      // 微信分享的数据
-      window.wxData = {
-      "appId": "wxdbc4e83f1cc7b001", // 服务号可以填写appId
-      "imgUrl":'http://chenzaichun.github.io/fctest/res/icon.jpg',
-      "link":'http://chenzaichun.github.io/fctest/',
-      "desc":"草泥马，别跑啊～～～",
-      "title":"你是我的小羊驼～～～"
-      };
+    // 微信分享的数据
+    window.wxData = {
+    "appId": "wxdbc4e83f1cc7b001", // 服务号可以填写appId
+    "imgUrl":'http://chenzaichun.github.io/fctest/res/icon.jpg',
+    "link":'http://chenzaichun.github.io/fctest/',
+    "desc":"草泥马，别跑啊～～～",
+    "title":"你是我的小羊驼～～～"
+    };
 
-      function share(m, step, percent){
-      if(m == 0){
-      document.title = window.wxData.desc = "草泥马，别跑啊～～～";
-      }
-      if(m == 1){
-      document.title = window.wxData.desc = "继续刷屏！"+step+"步推倒我的小羊驼，打败"+percent+"%朋友圈的人！你能超过我吗？";
-      }
-      if(m == 2){
-      document.title = window.wxData.desc = "草泥马它又跑掉了，T_T 快帮我抓回来！";
-      }
-      };
+    function share(m, step, percent){
+    if(m == 0){
+    document.title = window.wxData.desc = "草泥马，别跑啊～～～";
+    }
+    if(m == 1){
+    document.title = window.wxData.desc = "继续刷屏！"+step+"步推倒我的小羊驼，打败"+percent+"%朋友圈的人！你能超过我吗？";
+    }
+    if(m == 2){
+    document.title = window.wxData.desc = "草泥马它又跑掉了，T_T 快帮我抓回来！";
+    }
+    };
 
-      WeixinApi.ready(function(Api) {
+    WeixinApi.ready(function(Api) {
 
-      // 分享的回调
-      var wxCallbacks = {
-      ready : function() {
+    // 分享的回调
+    var wxCallbacks = {
+    ready : function() {
 
-      },
+    },
 
-      cancel : function(resp) {
+    cancel : function(resp) {
 
-      },
-      fail : function(resp) {
+    },
+    fail : function(resp) {
 
-      },
-      confirm : function(resp) {
+    },
+    confirm : function(resp) {
 
-      },
-      all : function(resp) {
+    },
+    all : function(resp) {
 
-      }
-      };
+    }
+    };
 
-      Api.shareToFriend(wxData, wxCallbacks);
+    Api.shareToFriend(wxData, wxCallbacks);
 
-      Api.shareToTimeline(wxData, wxCallbacks);
+    Api.shareToTimeline(wxData, wxCallbacks);
 
-      Api.shareToWeibo(wxData, wxCallbacks);
-      });
+    Api.shareToWeibo(wxData, wxCallbacks);
+    });
     </script>
 
   </body>

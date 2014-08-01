@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <title>草泥马，别跑啊～～～</title>
     <link rel="icon" type="image/GIF" href="res/favicon.ico"/>
@@ -11,76 +11,119 @@
     <meta name="x5-fullscreen" content="true"/>
     <meta name="360-fullscreen" content="true"/>
     <style>
-     body, canvas, div {
-       -moz-user-select: none;
-       -webkit-user-select: none;
-       -ms-user-select: none;
-       -khtml-user-select: none;
-       -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-     }
+        body, canvas, div {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            -khtml-user-select: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+        #adContainer{
+            position: absolute;
+            width: 320px;
+            height: 50px;
+            z-index: 5;
+            bottom: 0;
+            background-color: #fff;
+        }
     </style>
 
 
-  </head>
-  <body style="padding:0; margin: 0; background: #000;">
-    <canvas id="gameCanvas" width="800" height="450">
-    </canvas>
-    
-    
-    <script src="game.min.js"></script>
-    <script src="WeixinApi.js"></script>
+</head>
+<body style="padding:0; margin: 0; background: #000;">
+<canvas id="gameCanvas" width="800" height="450">
+</canvas>
 
+<div id="adContainer">
+<!-- fctest_mob -->
+    <!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle"
+    style="display:block;width:320px;height:50px;zIndex=1000;margin:0 auto;z-index:1000;position:relative;"
+    data-ad-client="ca-pub-9788859026282302"
+    data-ad-slot="4573556849"></ins>
     <script>
-     // 微信分享的数据
-     window.wxData = {
-       "appId": "wxdbc4e83f1cc7b001", // 服务号可以填写appId
-       "imgUrl":'http://chenzaichun.github.io/fctest/res/icon.jpg',
-       "link":'http://chenzaichun.github.io/fctest/',
-       "desc":"草泥马，别跑啊～～～",
-       "title":"你是我的小羊驼～～～"
-     };
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script> -->
+</div>
 
-     function share(m, step, percent){
-       if(m == 0){
-	 document.title = window.wxData.desc = "草泥马，别跑啊～～～";
-       }
-       if(m == 1){
-	 document.title = window.wxData.desc = "继续刷屏！"+step+"步推倒我的小羊驼，打败"+percent+"%朋友圈的人！你能超过我吗？";
-       }
-       if(m == 2){
-	 document.title = window.wxData.desc = "草泥马它又跑掉了，T_T 快帮我抓回来！";
-       }
-     };
 
-     WeixinApi.ready(function(Api) {
+<script src="game.min.js"></script>
+<script src="WeixinApi.js"></script>
 
-       // 分享的回调
-       var wxCallbacks = {
-	 ready : function() {
+<script>
+    // 微信分享的数据
+    window.wxData = {
+        "appId": "wxdbc4e83f1cc7b001", // 服务号可以填写appId
+        "imgUrl":'http://chenzaichun.github.io/fctest/res/icon.jpg',
+        "link":'http://chenzaichun.github.io/fctest/',
+        "desc":"草泥马，别跑啊～～～",
+        "title":"你是我的小羊驼～～～"
+    };
 
-	 },
+    function share(m, step, percent){
+        if(m == 0){
+            document.title = window.wxData.desc = "草泥马，别跑啊～～～";
+        }
+        if(m == 1){
+            document.title = window.wxData.desc = "继续刷屏！"+step+"步推倒我的小羊驼，打败"+percent+"%朋友圈的人！你能超过我吗？";
+        }
+        if(m == 2){
+            document.title = window.wxData.desc = "草泥马它又跑掉了，T_T 快帮我抓回来！";
+        }
+    };
 
-	 cancel : function(resp) {
+    WeixinApi.ready(function(Api) {
 
-	 },
-	 fail : function(resp) {
+        // 分享的回调
+        var wxCallbacks = {
+            ready : function() {
 
-	 },
-	 confirm : function(resp) {
+            },
 
-	 },
-	 all : function(resp) {
+            cancel : function(resp) {
 
-	 }
-       };
+            },
+            fail : function(resp) {
 
-       Api.shareToFriend(wxData, wxCallbacks);
+            },
+            confirm : function(resp) {
 
-       Api.shareToTimeline(wxData, wxCallbacks);
+            },
+            all : function(resp) {
 
-       Api.shareToWeibo(wxData, wxCallbacks);
-     });
-    </script>
+            }
+        };
 
-  </body>
+        Api.shareToFriend(wxData, wxCallbacks);
+
+        Api.shareToTimeline(wxData, wxCallbacks);
+
+        Api.shareToWeibo(wxData, wxCallbacks);
+    });
+
+    //处理广告位置
+    var    windowW,
+            adContainer = document.getElementById('adContainer'),
+            adW = getStyle(adContainer, 'width'),
+            adL;
+
+    setAdPosition();
+    function setAdPosition(){
+        windowW = document.documentElement.clientWidth;
+        adL = (windowW - parseInt(adW))/2;
+        adContainer.style.left = adL+'px';
+    }
+
+    function getStyle(obj,attribute){
+        return obj.currentStyle?obj.currentStyle[attribute]/*ie*/:document.defaultView.getComputedStyle(obj,null)[attribute];
+    }
+
+    window.onresize = function(){
+        setAdPosition();
+    }
+
+
+</script>
+
+</body>
 </html>

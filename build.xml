@@ -89,6 +89,7 @@
             </sources>
             <sources dir="${basedir}">
                 <file name="src/Resources.js"/>
+                <file name="src/Loader.js"/>
                 <file name="src/GameScene.js"/>
                 <file name="src/AI.js"/>
                 <file name="main.js"/>
